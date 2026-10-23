@@ -2,7 +2,7 @@ const btn = document.getElementById("btn")
 const quesInput = document.getElementById("question");
 const result = document.getElementById("result");
 
-const API_URL = "https://phase5-backend.vercel.app/"
+const API_URL = "https://phase5-backend.vercel.app"
 
 btn.addEventListener("click", getAnswer);
 
