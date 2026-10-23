@@ -2,6 +2,8 @@ const btn = document.getElementById("btn")
 const quesInput = document.getElementById("question");
 const result = document.getElementById("result");
 
+const API_URL = "https://phase5-backend.vercel.app/"
+
 btn.addEventListener("click", getAnswer);
 
 async function getAnswer() {
@@ -15,14 +17,17 @@ async function getAnswer() {
     btn.disabled = true;
 
     try {
-        const response = await fetch("/ask", {
+        const response = await fetch(`${API_URL}/ask`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify()
+            body: JSON.stringify({question})
         });
-        const result = await response.json();
+        const data = await response.json();
+        if(!response.ok) {
+            throw new Error(data.error || "Something went wrong")
+        }
         result.innerHTML = marked.parse(response.data.answer);
     } catch (error) {
         console.log(error);
