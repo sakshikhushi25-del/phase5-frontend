@@ -17,7 +17,7 @@ async function getAnswer() {
     btn.disabled = true;
 
     try {
-        const response = await fetch(`${API_URL}`, {
+        const response = await fetch(API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,16 +28,10 @@ async function getAnswer() {
         if(!response.ok) {
             throw new Error(data.error || "Something went wrong")
         }
-        result.innerHTML = marked.parse(response.data.answer);
+        result.innerHTML = marked.parse(data.answer);
     } catch (error) {
         console.log(error);
-        if (error.response) {
-            result.textContent = error.response.data.error;
-        } else if (error.request) {
-            result.textContent = "Unable to connect to the server";
-        } else {
-            result.textContent = error.message;
-        }
+        result.textContent = error.message || "Unable to connect to the server"
     } finally {
         btn.disabled = false;
     }
