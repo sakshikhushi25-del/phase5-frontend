@@ -2,7 +2,7 @@ const btn = document.getElementById("btn")
 const quesInput = document.getElementById("question");
 const result = document.getElementById("result");
 
-const API_URL = "https://phase5-backend.vercel.app"
+const API_URL = "https://phase5-backend.vercel.app/ask"
 
 btn.addEventListener("click", getAnswer);
 
@@ -17,7 +17,7 @@ async function getAnswer() {
     btn.disabled = true;
 
     try {
-        const response = await fetch(`${API_URL}/ask`, {
+        const response = await fetch(`${API_URL}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
