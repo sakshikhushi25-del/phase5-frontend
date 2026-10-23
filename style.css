@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #4f46e5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 750px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 24px;
+    padding: 45px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    color: #1e1b4b;
+    margin-bottom: 15px;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 35px;
+}
+
+.input-section {
+    display: flex;
+    gap: 12px;
+}
+
+#question {
+    flex: 1;
+    padding: 16px 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+#question:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+#btn {
+    border: none;
+    padding: 16px 25px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+}
+
+#btn:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#result {
+    margin-top: 30px;
+    min-height: 150px;
+    padding: 25px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+}
+
+/* Result title */
+#result::before {
+    content: "✦ Gemini Answer";
+    display: block;
+    color: #4f46e5;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    #btn {
+        width: 100%;
+    }
+}
